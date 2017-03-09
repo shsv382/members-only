@@ -9,6 +9,17 @@
   </head>
 
   <body>
+  <header style="width: 100%; display: block; height: 50px; border: 1px solid blue;">
+  	<div style="float: right; color: blue;">
+      <% if signed_in? %>
+        <%= current_user.name %>
+        <%= link_to "Sign out", signout_path, method: "delete" %>
+      <% else %>
+        <%= link_to "Sign in",  signin_path  %>
+        <%= link_to "Sign up",  signup_path  %>
+      <% end %>
+  	</div>
+  </header>
     <%= yield %>
   </body>
 </html>

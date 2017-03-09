@@ -4,4 +4,11 @@ Rails.application.routes.draw do
   	resources :posts
   end
 
+  resources :sessions, only: [:new, :create, :destroy]
+  get '/signin',		to: 'sessions#new'
+  delete '/signout',	to: 'sessions#destroy'
+  get '/signup',		to: 'users#new'
+
+  root to: 'static_pages#home'
+
 end
